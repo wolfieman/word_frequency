@@ -32,11 +32,15 @@ class LineAnalyzer
   #* identify the words that were used the maximum number of times and
   #  store that in the highest_wf_words attribute.
   def calculate_word_frequency(content)
-    hash = Hash[*content.downcase.split(' ').group_by{|i| i}.map{|k,v| [k, v.count] }.flatten]
-    max_words = Hash[hash.select { |k, v| v == hash.values.max}]
+    word_frequency = Hash.new(0)
 
-    @highest_wf_count = hash.values.max
-    max_words.each_key {|key| @highest_wf_words.push(key)}
+    content.split.each do |word| 
+      word_frequency[word.downcase] += 1 
+    end
+    @highest_wf_count = word_frequency.values.max
+
+    #max_words = word_frequency.select { |k, v| v == word_frequency.values.max}
+    word_frequency.select { |k, v| v == word_frequency.values.max}.each_key {|key| @highest_wf_words.push(key)}
   end
 end
 
@@ -48,8 +52,8 @@ class Solution
   #* highest_count_across_lines - a number with the maximum value for highest_wf_words attribute in the analyzers array.
   #* highest_count_words_across_lines - a filtered array of LineAnalyzer objects with the highest_wf_words attribute 
   #  equal to the highest_count_across_lines determined previously.
-  attr_reader :analyzers, :highest_count_across_lines, :highest_count_words_across_lines, :highest_wf_words
-  attr_accessor :filename, :hash_highest_count_words_across_lines
+  attr_reader :analyzers, :highest_count_across_lines, :highest_count_words_across_lines
+  attr_accessor :filename, :highest_wf_words
 
   def initialize ()
     @analyzers = []
@@ -84,30 +88,19 @@ class Solution
     @highest_count_across_lines = 0
     @highest_wf_words = 0
     @highest_count_words_across_lines = []
-    #p @highest_count_words_across_lines
     
-    p analyzers
     @analyzers.each do |item|
-      #p item
-      #p item.content.downcase.split 
-      if @highest_count_across_lines < item.highest_wf_count
-        #puts item.highest_wf_count
-        @highest_count_across_lines = item.highest_wf_count
-        @hash_highest_count_words_across_lines.push(item.highest_wf_words => item.line_number)
-        @highest_wf_words = item.highest_wf_count
-        @highest_count_words_across_lines.push(item.highest_wf_words)
-      elsif @highest_count_across_lines == item.highest_wf_count
-        @hash_highest_count_words_across_lines.push(item.highest_wf_words => item.line_number)
-        @highest_count_words_across_lines.push(item.highest_wf_words)
-        @highest_wf_words = item.highest_wf_count
-      end
-      #@highest_count_words_across_lines = @highest_count_words_across_lines.reverse.flatten
-      
-    end
-    @highest_count_words_across_lines = @highest_count_words_across_lines.reverse.flatten
+      @highest_count_across_lines = item.highest_wf_count if @highest_count_across_lines < item.highest_wf_count
 
+      if @highest_count_across_lines == item.highest_wf_count
+        @hash_highest_count_words_across_lines.push(item.highest_wf_words => item.line_number)
+        @highest_wf_words = item.highest_wf_count
+        @highest_count_words_across_lines.push(item.highest_wf_words)
+      end
+    end
     p highest_count_words_across_lines
-    #puts @highest_wf_words
+    @highest_count_words_across_lines = @highest_count_words_across_lines.reverse.flatten
+    p highest_count_words_across_lines
   end
 
   #Implement the print_highest_word_frequency_across_lines() method to
