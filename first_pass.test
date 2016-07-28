@@ -1,0 +1,216 @@
+
+LineAnalyzer
+  has accessor for highest_wf_count (FAILED - 1)
+  has accessor for highest_wf_words (FAILED - 2)
+  has accessor for content (FAILED - 3)
+  has accessor for line_number (FAILED - 4)
+  has method calculate_word_frequency (FAILED - 5)
+  calls calculate_word_frequency when created (FAILED - 6)
+  attributes and values
+    has attributes content and line_number (FAILED - 7)
+    content attribute should have value "test" (FAILED - 8)
+    line_number attribute should have value 1 (FAILED - 9)
+  #calculate_word_frequency
+    highest_wf_count value is 3 (FAILED - 10)
+    highest_wf_words will include "really" and "you" (FAILED - 11)
+    content attribute will have value "This is a really really really cool cool you you you" (FAILED - 12)
+    line_number attribute will have value 2 (FAILED - 13)
+
+Solution
+  should respond to #analyze_file (FAILED - 14)
+  should respond to #calculate_line_with_highest_frequency (FAILED - 15)
+  should respond to #print_highest_word_frequency_across_lines (FAILED - 16)
+  #analyze_file
+    creates 3 line analyzers (FAILED - 17)
+  #calculate_line_with_highest_frequency
+    calculates highest count across lines to be 4 (FAILED - 18)
+    calculates highest count words across lines to be will, it, really (FAILED - 19)
+
+Failures:
+
+  1) LineAnalyzer has accessor for highest_wf_count
+     Failure/Error: subject(:lineAnalyzer) { LineAnalyzer.new("test", 1) }
+
+     ArgumentError:
+       wrong number of arguments (given 2, expected 0)
+     # ./spec/line_analyzer_spec.rb:5:in `initialize'
+     # ./spec/line_analyzer_spec.rb:5:in `new'
+     # ./spec/line_analyzer_spec.rb:5:in `block (2 levels) in <top (required)>'
+     # ./spec/line_analyzer_spec.rb:8:in `block (2 levels) in <top (required)>'
+
+  2) LineAnalyzer has accessor for highest_wf_words
+     Failure/Error: subject(:lineAnalyzer) { LineAnalyzer.new("test", 1) }
+
+     ArgumentError:
+       wrong number of arguments (given 2, expected 0)
+     # ./spec/line_analyzer_spec.rb:5:in `initialize'
+     # ./spec/line_analyzer_spec.rb:5:in `new'
+     # ./spec/line_analyzer_spec.rb:5:in `block (2 levels) in <top (required)>'
+     # ./spec/line_analyzer_spec.rb:11:in `block (2 levels) in <top (required)>'
+
+  3) LineAnalyzer has accessor for content
+     Failure/Error: subject(:lineAnalyzer) { LineAnalyzer.new("test", 1) }
+
+     ArgumentError:
+       wrong number of arguments (given 2, expected 0)
+     # ./spec/line_analyzer_spec.rb:5:in `initialize'
+     # ./spec/line_analyzer_spec.rb:5:in `new'
+     # ./spec/line_analyzer_spec.rb:5:in `block (2 levels) in <top (required)>'
+     # ./spec/line_analyzer_spec.rb:14:in `block (2 levels) in <top (required)>'
+
+  4) LineAnalyzer has accessor for line_number
+     Failure/Error: subject(:lineAnalyzer) { LineAnalyzer.new("test", 1) }
+
+     ArgumentError:
+       wrong number of arguments (given 2, expected 0)
+     # ./spec/line_analyzer_spec.rb:5:in `initialize'
+     # ./spec/line_analyzer_spec.rb:5:in `new'
+     # ./spec/line_analyzer_spec.rb:5:in `block (2 levels) in <top (required)>'
+     # ./spec/line_analyzer_spec.rb:17:in `block (2 levels) in <top (required)>'
+
+  5) LineAnalyzer has method calculate_word_frequency
+     Failure/Error: subject(:lineAnalyzer) { LineAnalyzer.new("test", 1) }
+
+     ArgumentError:
+       wrong number of arguments (given 2, expected 0)
+     # ./spec/line_analyzer_spec.rb:5:in `initialize'
+     # ./spec/line_analyzer_spec.rb:5:in `new'
+     # ./spec/line_analyzer_spec.rb:5:in `block (2 levels) in <top (required)>'
+     # ./spec/line_analyzer_spec.rb:20:in `block (2 levels) in <top (required)>'
+
+  6) LineAnalyzer calls calculate_word_frequency when created
+     Failure/Error: expect_any_instance_of(LineAnalyzer).to receive(:calculate_word_frequency)
+       LineAnalyzer does not implement #calculate_word_frequency
+     # ./spec/line_analyzer_spec.rb:35:in `block (2 levels) in <top (required)>'
+
+  7) LineAnalyzer attributes and values has attributes content and line_number
+     Failure/Error: subject(:lineAnalyzer) { LineAnalyzer.new("test", 1) }
+
+     ArgumentError:
+       wrong number of arguments (given 2, expected 0)
+     # ./spec/line_analyzer_spec.rb:5:in `initialize'
+     # ./spec/line_analyzer_spec.rb:5:in `new'
+     # ./spec/line_analyzer_spec.rb:5:in `block (2 levels) in <top (required)>'
+     # ./spec/line_analyzer_spec.rb:24:in `block (3 levels) in <top (required)>'
+
+  8) LineAnalyzer attributes and values content attribute should have value "test"
+     Failure/Error: subject(:lineAnalyzer) { LineAnalyzer.new("test", 1) }
+
+     ArgumentError:
+       wrong number of arguments (given 2, expected 0)
+     # ./spec/line_analyzer_spec.rb:5:in `initialize'
+     # ./spec/line_analyzer_spec.rb:5:in `new'
+     # ./spec/line_analyzer_spec.rb:5:in `block (2 levels) in <top (required)>'
+     # ./spec/line_analyzer_spec.rb:27:in `block (3 levels) in <top (required)>'
+
+  9) LineAnalyzer attributes and values line_number attribute should have value 1
+     Failure/Error: subject(:lineAnalyzer) { LineAnalyzer.new("test", 1) }
+
+     ArgumentError:
+       wrong number of arguments (given 2, expected 0)
+     # ./spec/line_analyzer_spec.rb:5:in `initialize'
+     # ./spec/line_analyzer_spec.rb:5:in `new'
+     # ./spec/line_analyzer_spec.rb:5:in `block (2 levels) in <top (required)>'
+     # ./spec/line_analyzer_spec.rb:30:in `block (3 levels) in <top (required)>'
+
+  10) LineAnalyzer#calculate_word_frequency highest_wf_count value is 3
+      Failure/Error: subject(:lineAnalyzer) { LineAnalyzer.new("This is a really really really cool cool you you you", 2) }
+
+      ArgumentError:
+        wrong number of arguments (given 2, expected 0)
+      # ./spec/line_analyzer_spec.rb:40:in `initialize'
+      # ./spec/line_analyzer_spec.rb:40:in `new'
+      # ./spec/line_analyzer_spec.rb:40:in `block (3 levels) in <top (required)>'
+      # ./spec/line_analyzer_spec.rb:43:in `block (3 levels) in <top (required)>'
+
+  11) LineAnalyzer#calculate_word_frequency highest_wf_words will include "really" and "you"
+      Failure/Error: subject(:lineAnalyzer) { LineAnalyzer.new("This is a really really really cool cool you you you", 2) }
+
+      ArgumentError:
+        wrong number of arguments (given 2, expected 0)
+      # ./spec/line_analyzer_spec.rb:40:in `initialize'
+      # ./spec/line_analyzer_spec.rb:40:in `new'
+      # ./spec/line_analyzer_spec.rb:40:in `block (3 levels) in <top (required)>'
+      # ./spec/line_analyzer_spec.rb:46:in `block (3 levels) in <top (required)>'
+
+  12) LineAnalyzer#calculate_word_frequency content attribute will have value "This is a really really really cool cool you you you"
+      Failure/Error: subject(:lineAnalyzer) { LineAnalyzer.new("This is a really really really cool cool you you you", 2) }
+
+      ArgumentError:
+        wrong number of arguments (given 2, expected 0)
+      # ./spec/line_analyzer_spec.rb:40:in `initialize'
+      # ./spec/line_analyzer_spec.rb:40:in `new'
+      # ./spec/line_analyzer_spec.rb:40:in `block (3 levels) in <top (required)>'
+      # ./spec/line_analyzer_spec.rb:49:in `block (3 levels) in <top (required)>'
+
+  13) LineAnalyzer#calculate_word_frequency line_number attribute will have value 2
+      Failure/Error: subject(:lineAnalyzer) { LineAnalyzer.new("This is a really really really cool cool you you you", 2) }
+
+      ArgumentError:
+        wrong number of arguments (given 2, expected 0)
+      # ./spec/line_analyzer_spec.rb:40:in `initialize'
+      # ./spec/line_analyzer_spec.rb:40:in `new'
+      # ./spec/line_analyzer_spec.rb:40:in `block (3 levels) in <top (required)>'
+      # ./spec/line_analyzer_spec.rb:52:in `block (3 levels) in <top (required)>'
+
+  14) Solution should respond to #analyze_file
+      Failure/Error: it { is_expected.to respond_to(:analyze_file) }
+        expected #<Solution:0x0055b312bf64e8> to respond to :analyze_file
+      # ./spec/solution_spec.rb:7:in `block (2 levels) in <top (required)>'
+
+  15) Solution should respond to #calculate_line_with_highest_frequency
+      Failure/Error: it { is_expected.to respond_to(:calculate_line_with_highest_frequency) }
+        expected #<Solution:0x0055b312cd1188> to respond to :calculate_line_with_highest_frequency
+      # ./spec/solution_spec.rb:8:in `block (2 levels) in <top (required)>'
+
+  16) Solution should respond to #print_highest_word_frequency_across_lines
+      Failure/Error: it { is_expected.to respond_to(:print_highest_word_frequency_across_lines) }
+        expected #<Solution:0x0055b312cc99b0> to respond to :print_highest_word_frequency_across_lines
+      # ./spec/solution_spec.rb:9:in `block (2 levels) in <top (required)>'
+
+  17) Solution#analyze_file creates 3 line analyzers
+      Failure/Error: expect(solution.analyzers.length).to eq 0
+
+      NoMethodError:
+        undefined method `analyzers' for #<Solution:0x0055b312cc2638>
+      # ./spec/solution_spec.rb:13:in `block (3 levels) in <top (required)>'
+
+  18) Solution#calculate_line_with_highest_frequency calculates highest count across lines to be 4
+      Failure/Error: solution.analyze_file
+
+      NoMethodError:
+        undefined method `analyze_file' for #<Solution:0x0055b312cb6f18>
+      # ./spec/solution_spec.rb:23:in `block (3 levels) in <top (required)>'
+
+  19) Solution#calculate_line_with_highest_frequency calculates highest count words across lines to be will, it, really
+      Failure/Error: solution.analyze_file
+
+      NoMethodError:
+        undefined method `analyze_file' for #<Solution:0x0055b312ca4b10>
+      # ./spec/solution_spec.rb:32:in `block (3 levels) in <top (required)>'
+
+Finished in 0.02218 seconds (files took 0.09183 seconds to load)
+19 examples, 19 failures
+
+Failed examples:
+
+rspec ./spec/line_analyzer_spec.rb:7 # LineAnalyzer has accessor for highest_wf_count
+rspec ./spec/line_analyzer_spec.rb:10 # LineAnalyzer has accessor for highest_wf_words
+rspec ./spec/line_analyzer_spec.rb:13 # LineAnalyzer has accessor for content
+rspec ./spec/line_analyzer_spec.rb:16 # LineAnalyzer has accessor for line_number
+rspec ./spec/line_analyzer_spec.rb:19 # LineAnalyzer has method calculate_word_frequency
+rspec ./spec/line_analyzer_spec.rb:34 # LineAnalyzer calls calculate_word_frequency when created
+rspec ./spec/line_analyzer_spec.rb:23 # LineAnalyzer attributes and values has attributes content and line_number
+rspec ./spec/line_analyzer_spec.rb:26 # LineAnalyzer attributes and values content attribute should have value "test"
+rspec ./spec/line_analyzer_spec.rb:29 # LineAnalyzer attributes and values line_number attribute should have value 1
+rspec ./spec/line_analyzer_spec.rb:42 # LineAnalyzer#calculate_word_frequency highest_wf_count value is 3
+rspec ./spec/line_analyzer_spec.rb:45 # LineAnalyzer#calculate_word_frequency highest_wf_words will include "really" and "you"
+rspec ./spec/line_analyzer_spec.rb:48 # LineAnalyzer#calculate_word_frequency content attribute will have value "This is a really really really cool cool you you you"
+rspec ./spec/line_analyzer_spec.rb:51 # LineAnalyzer#calculate_word_frequency line_number attribute will have value 2
+rspec ./spec/solution_spec.rb:7 # Solution should respond to #analyze_file
+rspec ./spec/solution_spec.rb:8 # Solution should respond to #calculate_line_with_highest_frequency
+rspec ./spec/solution_spec.rb:9 # Solution should respond to #print_highest_word_frequency_across_lines
+rspec ./spec/solution_spec.rb:12 # Solution#analyze_file creates 3 line analyzers
+rspec ./spec/solution_spec.rb:22 # Solution#calculate_line_with_highest_frequency calculates highest count across lines to be 4
+rspec ./spec/solution_spec.rb:31 # Solution#calculate_line_with_highest_frequency calculates highest count words across lines to be will, it, really
+
