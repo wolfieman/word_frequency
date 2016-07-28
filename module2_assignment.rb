@@ -38,8 +38,7 @@ class LineAnalyzer
       word_frequency[word.downcase] += 1 
     end
     @highest_wf_count = word_frequency.values.max
-
-    #max_words = word_frequency.select { |k, v| v == word_frequency.values.max}
+    
     word_frequency.select { |k, v| v == word_frequency.values.max}.each_key {|key| @highest_wf_words.push(key)}
   end
 end
@@ -58,7 +57,6 @@ class Solution
   def initialize ()
     @analyzers = []
     @filename = './test.txt'
-    @hash_highest_count_words_across_lines = []
   end
 
   # Implement the following methods in the Solution class.
@@ -93,14 +91,10 @@ class Solution
       @highest_count_across_lines = item.highest_wf_count if @highest_count_across_lines < item.highest_wf_count
 
       if @highest_count_across_lines == item.highest_wf_count
-        @hash_highest_count_words_across_lines.push(item.highest_wf_words => item.line_number)
         @highest_wf_words = item.highest_wf_count
-        @highest_count_words_across_lines.push(item.highest_wf_words)
+        @highest_count_words_across_lines.push(item)
       end
     end
-    p highest_count_words_across_lines
-    @highest_count_words_across_lines = @highest_count_words_across_lines.reverse.flatten
-    p highest_count_words_across_lines
   end
 
   #Implement the print_highest_word_frequency_across_lines() method to
@@ -110,23 +104,9 @@ class Solution
   #["word2", "word3"] (appears in line #)
   def print_highest_word_frequency_across_lines()
     puts "The following words have the highest word frequency per line:"
-    @hash_highest_count_words_across_lines.flatten.each do |hash|
-      hash.each do |word, line_number|
-        puts "#{word} (appears in line #{line_number})"
-      end
+    
+    @highest_count_words_across_lines.each do |analyzer|
+      puts "#{analyzer.highest_wf_words} (appears in line #{analyzer.line_number})"
     end
   end
 end
-
-#content1 = LineAnalyzer.new("This is a really really really cool cool you you you", 2)
-
-#testfile = Solution.new()
-#testfile.analyze_file('./test.txt')
-#p testfile.analyzers[0]
-#testfile.calculate_line_with_highest_frequency()
-
-solution = Solution.new
-#expect errors until you implement these methods
-solution.analyze_file
-solution.calculate_line_with_highest_frequency
-solution.print_highest_word_frequency_across_lines

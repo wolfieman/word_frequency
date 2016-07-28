@@ -1,0 +1,31 @@
+
+LineAnalyzer
+  has accessor for highest_wf_count
+  has accessor for highest_wf_words
+  has accessor for content
+  has accessor for line_number
+  has method calculate_word_frequency
+  calls calculate_word_frequency when created
+  attributes and values
+    has attributes content and line_number
+    content attribute should have value "test"
+    line_number attribute should have value 1
+  #calculate_word_frequency
+    highest_wf_count value is 3
+    highest_wf_words will include "really" and "you"
+    content attribute will have value "This is a really really really cool cool you you you"
+    line_number attribute will have value 2
+
+Solution
+  should respond to #analyze_file
+  should respond to #calculate_line_with_highest_frequency
+  should respond to #print_highest_word_frequency_across_lines
+  #analyze_file
+    creates 3 line analyzers
+  #calculate_line_with_highest_frequency
+    calculates highest count across lines to be 4
+    calculates highest count words across lines to be will, it, really
+
+Finished in 0.01915 seconds (files took 0.09153 seconds to load)
+19 examples, 0 failures
+
